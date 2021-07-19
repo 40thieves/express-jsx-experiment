@@ -7,11 +7,10 @@ export default function Page() {
   const [data, setData] = useState(null)
 
   useEffect(() => {
-    // Fake a network request
-    setTimeout(() => {
+    fetch('http://example.com').then(() => {
       setLoading(false)
       setData('This is some async content')
-    }, 1000)
+    })
   }, [])
 
   return (
