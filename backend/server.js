@@ -29,8 +29,11 @@ app.engine(
 
 app.use(express.static('public'))
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.render('index')
+
+  // Prove that files are transpiled after a view file is rendered
+  require('./transpiled-file')
 })
 
 app.listen(3000, () => console.log('Server started on port 3000'))
